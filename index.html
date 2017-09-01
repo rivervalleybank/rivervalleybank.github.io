@@ -81,9 +81,7 @@ $(document).ready(function () {
       document.body.style.display = originalBodyStyle;
     }, 50);
   });
-$(window).on("orientationchange", function (e) {
-//alert(screen.availWidth);
-});
+	
 $("g#so").css('display', 'none');
 var z = [];
 z[0] = [2,6];
@@ -108,6 +106,7 @@ z[1] = [3,7];
 				}, 200);
 				$("*").removeClass('clickable');
 				$("g#so").css('display', '').addClass('clickabletoo');
+				$("g #goback").css('display', 'hidden').prop('disabled', true);
 				$("#results").removeAttr("ans");
 				var resultsString = "";
 				$.each($("#results").data(), function (i, e) {
