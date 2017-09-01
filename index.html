@@ -237,12 +237,13 @@ function fnNext(x) {
 			$("#slidenum").text('8');
 			$("#t2").text('Are you paying PMI on');
 			$("#t3").text('your current mortgage?');
-			$("#t5").text('$200 - $2,500').addClass('clickable').css('font-size','20');
+			$("#t5").text('YES').addClass('clickable').css('font-size','20');
 			$("#t5, #r5").attr('data-ans', '1');
-			$("#t7").text('$2,500 - $50,000').addClass('clickable').css('font-size','20');
+			$("#t7").text('NO').addClass('clickable').css('font-size','20');
 			$("#t7, #r7").attr('data-ans', '2');
-			$("#t9").text('Over $50,000').addClass('clickable').css('font-size','20');
+			$("#t9").text("WHAT'S PMI?").addClass('clickable').css('font-size','20');
 			$("#t9, #r9").attr('data-ans', '3');
+			
 			$("#r5, #r7, #r9").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
 			break;
 	}
