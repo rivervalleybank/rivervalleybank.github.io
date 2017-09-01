@@ -163,11 +163,13 @@ function fnNext(x) {
 			$("#slidenum").text('1');
 			$("#t2").text('Are you on track to retire');
 			$("#t3").text('when you would like?');
-			$("#t5").text('YES').addClass('clickable').css('font-size','20');
+			$("#t5").text("YES, I'LL BE READY").addClass('clickable').css('font-size','20');
 			$("#t5, #r5").attr('data-ans','1');
-			$("#t7").text('NO').addClass('clickable').css('font-size','20');
+			$("#t7").text('MAYBE...').addClass('clickable').css('font-size','20');
 			$("#t7, #r7").attr('data-ans', '2');
-			$("#r5, #r7").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
+			$("#t9").text('NO, HELP!').addClass('clickable').css('font-size','20');
+			$("#t9, #r9").attr('data-ans', '2');
+			$("#r5, #r7, #r9").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
 			break;
 		case 2:
 			$("#slidenum").text('2');
