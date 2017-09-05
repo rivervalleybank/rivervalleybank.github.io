@@ -3,9 +3,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <head>
-
-<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script src="jquery.ui.touch-punch.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
 <style>
@@ -53,8 +54,6 @@ font-family: 'Philosopher', sans-serif;
 	stroke-width:2;
 	opacity:0;
 }
-input[type='range']::-ms-track {
-}
 }
 @media screen and (max-width:1150px) {
 	#finalLine1, #finalLine2 {
@@ -81,9 +80,8 @@ input[type='range']::-ms-track {
 <script>
 
 $(document).ready(function () {
-$("#clickme").click(function () {
-	alert($("#r6").position().top);
-});
+//$("#range2").css({'display':'block','left':parseInt($("#r7").offset().left) + 20,'top':$("#r7").offset().top+12});
+
 
 $("g#so").css('display', 'hidden');
 var z = [];
@@ -163,6 +161,7 @@ z[1] = [3,7];
       document.body.style.display = originalBodyStyle;
     }, 50);
   });
+
 	
 	//initialize
 	fnNext(1);
@@ -170,7 +169,7 @@ z[1] = [3,7];
 
 function fnClearAll() {
 	$("#slidenum").text('');
-	//$("input[type='range']").css('display', 'none');
+	$("input[type='range']").css('display', 'none');
 	$("[id^='r']").each(function () {
 		$(this).css({'fill':'none','stroke':'none'}).attr('data-ans','0');
 	});
@@ -230,18 +229,16 @@ function fnNext(x) {
 			break;
 		case 5:
 			$("#slidenum").text('5');
+			$("input[type='range']").css('display', 'block');
 			$("#t2").text('How much do you spend');
 			$("#t3").text('monthly in each category?');
-			$("#t5").text('CATEGORY 1 :  $' + $("#range1").val()).css('font-size','20');
-			$("#t7").text('CATEGORY 2 :  $' + $("#range2").val()).css('font-size','20');
-			$("#t9").text('CATEGORY 3 :  $' + $("#range3").val()).css('font-size','20');
+			$("#t5").text('CATEGORY 1 :  $' + $("#range1").val()).addClass('clickable').css('font-size','20');
+			$("#t7").text('CATEGORY 2 :  $' + $("#range2").val()).addClass('clickable').css('font-size','20');
+			$("#t9").text('CATEGORY 3 :  $' + $("#range3").val()).addClass('clickable').css('font-size','20');
 			$("#t11").text('DONE').addClass('clickable').css('font-size','20');
 			$("#t11, #r11").attr('data-ans', '1');
 			$("#r11").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
 			$("#r5, #r7, #r9").css({'fill':'#efefef','stroke':'grey'});
-			//$("#range2").css({'display':'block','left':parseInt($("#r7").position().left) + 20,'top':$("#r7").position().top+12});
-			//$("#range1").css({'display':'block','left':parseInt($("#r5").position().left) + 20,'top':$("#r5").position().top+12});
-			//$("#range3").css({'display':'block','left':parseInt($("#r9").position().left) + 20,'top':$("#r9").position().top+12});
 			break;
 		case 6:
 			$("#slidenum").text('6');
@@ -309,6 +306,25 @@ function fnNext(x) {
 		</g>
 
 		<g id="g1" class="main">
+		<foreignObject x="50%" y="50%" height="20" width="320" transform="translate(-160,-24)">
+			<body xmlns="http://www.w3.org/1999/xhtml">
+			<label for="range1"></label>
+			<input type="range" name="range1" id="range1" value="0" min="0" max="1000" style="width:100%;padding:0;margin:0;" />
+				<!--<input type="range" id="range1" min="0" max="1500" value="0" style="width:100%;padding:0;margin:0;" />-->
+			</body>
+		</foreignObject>
+		<foreignObject x="50%" y="50%" height="20" width="320" transform="translate(-160,30)">
+			<body xmlns="http://www.w3.org/1999/xhtml">
+			<label for="range2"></label>
+			<input type="range" name="range2" id="range2" value="0" min="0" max="1000" style="width:100%;padding:0;margin:0;" />
+			</body>
+		</foreignObject>
+		<foreignObject x="50%" y="50%" height="20" width="320" transform="translate(-160,84)">
+			<body xmlns="http://www.w3.org/1999/xhtml">
+			<label for="range3"></label>
+			<input type="range" name="range3" id="range3" value="0" min="0" max="1000" style="width:100%;padding:0;margin:0;" />
+			</body>
+		</foreignObject>
 			<rect id="r1" x="50%" y="50%" rx="10" width="320" height="27" fill="none" transform="translate(-160,-162)" />
 			<text id="t1" text-anchor="middle" x="50%" y="50%" transform="translate(0,-141)"  ></text>
 				
@@ -320,10 +336,11 @@ function fnNext(x) {
 				
 			<rect id="r4" x="50%" y="50%" rx="10" width="320" height="27" fill="none" transform="translate(-160,-81)" />
 			<text id="t4" text-anchor="middle" x="50%" y="50%" transform="translate(0,-60)" ></text>
-				
-			<rect id="r5" x="50%" y="50%" rx="10" width="320" height="27" fill="none" transform="translate(-160,-54)" />
-			<text id="t5" text-anchor="middle" x="50%" y="50%" transform="translate(0,-33)" ></text>
-				
+
+			<rect class="r5" id="r5" x="50%" y="50%" rx="10" width="320" height="27" fill="none" transform="translate(-160,-54)" />
+			<text class="t5" id="t5" text-anchor="middle" x="50%" y="50%" transform="translate(0,-33)" ></text>
+
+			
 			<rect id="r6" x="50%" y="50%" rx="10" width="320" height="27" fill="none" transform="translate(-160,-27)" />
 			<text id="t6" text-anchor="middle" x="50%" y="50%" transform="translate(0,-6)" ></text>
 
@@ -344,16 +361,10 @@ function fnNext(x) {
 				
 			<rect id="r12" x="50%" y="50%" rx="10" width="320" height="27" fill="none" transform="translate(-160,135)" />
 			<text id="t12" text-anchor="middle" x="50%" y="50%" transform="translate(0,156)" ></text>
-		</g>-->
+		</g>
 		<g>
 			<text id="goback" class="" text-anchor="middle" x="50%" y="50%" font-size="15" transform="translate(0,215)" fill="blue">go back</text>
 		</g>
 	</svg>
-	<form>
-		<input type="range" id="range1" min="0" max="1500" value="0"  />
-		<input type="range" id="range2" min="0" max="1500" value="0"  />
-		<input type="range" id="range3" min="0" max="1500" value="0"  />
-		<!--<input id="clickme" type="button" value="click" />-->
-	</form>
 </body>
 </html>
