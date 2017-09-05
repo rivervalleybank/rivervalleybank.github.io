@@ -1,3 +1,22 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Marketplace
+Explore
+ @rivervalleybank
+ Sign out
+ Watch 0
+  Star 0
+  Fork 0 rivervalleybank/rivervalleybank.github.io
+ Code  Pull requests 0  Settings Insights 
+Branch: master Find file Copy pathrivervalleybank.github.io/alternate.html
+d71ac52  a minute ago
+@rivervalleybank rivervalleybank Update alternate.html
+1 contributor
+RawBlameHistory     
+373 lines (345 sloc)  14.1 KB
 
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -78,11 +97,8 @@ font-family: 'Philosopher', sans-serif;
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-
 $(document).ready(function () {
 //$("#range2").css({'display':'block','left':parseInt($("#r7").offset().left) + 20,'top':$("#r7").offset().top+12});
-
-
 $("g#so").css('display', 'hidden');
 var z = [];
 z[0] = [2,6];
@@ -161,12 +177,10 @@ z[1] = [3,7];
       document.body.style.display = originalBodyStyle;
     }, 50);
   });
-
 	
 	//initialize
 	fnNext(1);
 });
-
 function fnClearAll() {
 	$("#slidenum").text('');
 	$("input[type='range']").css('display', 'none');
@@ -177,7 +191,6 @@ function fnClearAll() {
 		$(this).text('').css('font-size','28').attr('data-ans','0');
 	});
 }
-
 function fnNext(x) {
 	fnClearAll();
 	$("#goback").css('opacity','1').parent().addClass('clickabletoo');
@@ -307,22 +320,20 @@ function fnNext(x) {
 
 		<g id="g1" class="main">
 		<foreignObject x="50%" y="50%" height="20" width="320" transform="translate(-160,-24)">
-			<body xmlns="http://www.w3.org/1999/xhtml">
-				<div class="ui-field-contain">
-			<label for="range1">Cat1:</label>
+			<body xmlns="http://www.w3.org/1999/xhtml" class="ui-field-contain">
+			<label for="range1"></label>
 			<input type="range" name="range1" id="range1" value="0" min="0" max="1000" style="padding:0;margin:0;" />
-				</div>
 					<!--<input type="range" id="range1" min="0" max="1500" value="0" style="width:100%;padding:0;margin:0;" />-->
 			</body>
 		</foreignObject>
 		<foreignObject x="50%" y="50%" height="20" width="320" transform="translate(-160,30)">
-			<body xmlns="http://www.w3.org/1999/xhtml">
+			<body xmlns="http://www.w3.org/1999/xhtml" class="ui-field-contain">
 			<label for="range2"></label>
 			<input type="range" name="range2" id="range2" value="0" min="0" max="1000" style="width:100%;padding:0;margin:0;" />
 			</body>
 		</foreignObject>
 		<foreignObject x="50%" y="50%" height="20" width="320" transform="translate(-160,84)">
-			<body xmlns="http://www.w3.org/1999/xhtml">
+			<body xmlns="http://www.w3.org/1999/xhtml" class="ui-field-contain">
 			<label for="range3"></label>
 			<input type="range" name="range3" id="range3" value="0" min="0" max="1000" style="width:100%;padding:0;margin:0;" />
 			</body>
@@ -370,3 +381,15 @@ function fnNext(x) {
 	</svg>
 </body>
 </html>
+© 2017 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+API
+Training
+Shop
+Blog
+About
