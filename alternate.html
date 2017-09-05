@@ -170,7 +170,7 @@ z[1] = [3,7];
 
 function fnClearAll() {
 	$("#slidenum").text('');
-	$("input[type='range']").css('display', 'none');
+	//$("input[type='range']").css('display', 'none');
 	$("[id^='r']").each(function () {
 		$(this).css({'fill':'none','stroke':'none'}).attr('data-ans','0');
 	});
@@ -239,11 +239,9 @@ function fnNext(x) {
 			$("#t11, #r11").attr('data-ans', '1');
 			$("#r11").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
 			$("#r5, #r7, #r9").css({'fill':'#efefef','stroke':'grey'});
-			$("#range2").css({'display':'block','left':parseInt($("#r7").position().left) + 20,'top':$("#r7").position().top+12});
-			//alert(pLeft);
-			$("#range2").css({'display':'block','left':parseInt($("#r7").position().left) + 20,'top':$("#r7").position().top+12});
-			$("#range1").css({'display':'block','left':parseInt($("#r5").position().left) + 20,'top':$("#r5").position().top+12});
-			$("#range3").css({'display':'block','left':parseInt($("#r9").position().left) + 20,'top':$("#r9").position().top+12});
+			//$("#range2").css({'display':'block','left':parseInt($("#r7").position().left) + 20,'top':$("#r7").position().top+12});
+			//$("#range1").css({'display':'block','left':parseInt($("#r5").position().left) + 20,'top':$("#r5").position().top+12});
+			//$("#range3").css({'display':'block','left':parseInt($("#r9").position().left) + 20,'top':$("#r9").position().top+12});
 			break;
 		case 6:
 			$("#slidenum").text('6');
@@ -352,9 +350,9 @@ function fnNext(x) {
 		</g>
 	</svg>
 	<form>
-		<input type="range" id="range1" min="0" max="1500" value="0" style="position:absolute;display:none;" />
-		<input type="range" id="range2" min="0" max="1500" value="0" style="position:absolute;display:none;" />
-		<input type="range" id="range3" min="0" max="1500" value="0" style="position:absolute;display:none;" />
+		<input type="range" id="range1" min="0" max="1500" value="0"  />
+		<input type="range" id="range2" min="0" max="1500" value="0"  />
+		<input type="range" id="range3" min="0" max="1500" value="0"  />
 		<!--<input id="clickme" type="button" value="click" />-->
 	</form>
 </body>
