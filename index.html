@@ -3,6 +3,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <head>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="jquery.ui.touch-punch.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
 <style>
 @media screen {
@@ -49,6 +54,8 @@ font-family: 'Philosopher', sans-serif;
 	stroke-width:2;
 	opacity:0;
 }
+input[type='range']::-ms-track {
+}
 }
 @media screen and (max-width:1150px) {
 	#finalLine1, #finalLine2 {
@@ -73,15 +80,12 @@ font-family: 'Philosopher', sans-serif;
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
+
 $(document).ready(function () {
-  window.addEventListener('orientationchange', function () {
-    var originalBodyStyle = getComputedStyle(document.body).getPropertyValue('display');
-    document.body.style.display='none';
-    setTimeout(function () {
-      document.body.style.display = originalBodyStyle;
-    }, 50);
-  });
-	
+$("#clickme").click(function () {
+	alert($("#r6").position().top);
+});
+
 $("g#so").css('display', 'hidden');
 var z = [];
 z[0] = [2,6];
@@ -140,12 +144,34 @@ z[1] = [3,7];
 		location.reload(true);
 	});
 	
+	//slider change 
+	$("#range1").on('change', function () {
+		$("#t5").text('CATEGORY 1 :  $' + $(this).val()).css('font-size','20');
+	});
+	$("#range2").on('change', function () {
+		$("#t7").text('CATEGORY 2 :  $' + $(this).val()).css('font-size', '20');
+	});
+		$("#range3").on('change', function () {
+		$("#t9").text('CATEGORY 3 :  $' + $(this).val()).css('font-size', '20');
+	});
+	
+	
+  window.addEventListener('orientationchange', function () {
+	fnNext(parseInt($("#slidenum").text()));
+    var originalBodyStyle = getComputedStyle(document.body).getPropertyValue('display');
+    document.body.style.display='none';
+    setTimeout(function () {
+      document.body.style.display = originalBodyStyle;
+    }, 50);
+  });
+	
 	//initialize
 	fnNext(1);
 });
 
 function fnClearAll() {
 	$("#slidenum").text('');
+	//$("input[type='range']").css('display', 'none');
 	$("[id^='r']").each(function () {
 		$(this).css({'fill':'none','stroke':'none'}).attr('data-ans','0');
 	});
@@ -163,13 +189,11 @@ function fnNext(x) {
 			$("#slidenum").text('1');
 			$("#t2").text('Are you on track to retire');
 			$("#t3").text('when you would like?');
-			$("#t5").text("YES, I'LL BE READY").addClass('clickable').css('font-size','20');
+			$("#t5").text('YES').addClass('clickable').css('font-size','20');
 			$("#t5, #r5").attr('data-ans','1');
-			$("#t7").text('MAYBE...').addClass('clickable').css('font-size','20');
+			$("#t7").text('NO').addClass('clickable').css('font-size','20');
 			$("#t7, #r7").attr('data-ans', '2');
-			$("#t9").text('NO, HELP!').addClass('clickable').css('font-size','20');
-			$("#t9, #r9").attr('data-ans', '2');
-			$("#r5, #r7, #r9").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
+			$("#r5, #r7").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
 			break;
 		case 2:
 			$("#slidenum").text('2');
@@ -207,10 +231,19 @@ function fnNext(x) {
 			break;
 		case 5:
 			$("#slidenum").text('5');
-			$("#t2").text('Credit Card : SKIP!');
-			$("#t4").text('SKIP').addClass('clickable').css('font-size','20');
-			$("#t4, #r4").attr('data-ans', '1');
-			$("#r4").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
+			$("#t2").text('In which category do');
+			$("#t3").text('you spend the most money');
+			$("#t4").text('on a montly basis?');
+			//options
+			$("#t6").text('CATEGORY 1').addClass('clickable').css('font-size','20');
+			$("#t6, #r6").attr('data-ans', '1');
+			$("#t8").text('CATEGORY 2').addClass('clickable').css('font-size','20');
+			$("#t8, #r8").attr('data-ans', '2');
+			$("#t10").text('CATEGORY 3').addClass('clickable').css('font-size','20');
+			$("#t10, #r10").attr('data-ans', '3');
+			$("#t12").text('CATEGORY 4').addClass('clickable').css('font-size','20');
+			$("#t12, #r12").attr('data-ans', '4');
+			$("#r6, #r8, #r10, #r12").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
 			break;
 		case 6:
 			$("#slidenum").text('6');
@@ -244,7 +277,6 @@ function fnNext(x) {
 			$("#t7, #r7").attr('data-ans', '2');
 			$("#t9").text("WHAT'S PMI?").addClass('clickable').css('font-size','20');
 			$("#t9, #r9").attr('data-ans', '3');
-			
 			$("#r5, #r7, #r9").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
 			break;
 	}
@@ -254,6 +286,7 @@ function fnNext(x) {
 	<div id="results">
 	</div>
 	<svg id="svg1" height="100%" width="100%">
+
 		<defs>
 			<filter id="f1" x="-5%" y="-5%" >
 				<feGaussianBlur in="SourceGraphic" stdDeviation="4"/>
@@ -276,6 +309,7 @@ function fnNext(x) {
 			<circle cx="50%" cy="50%" r="235" fill="white" />
 			<text id="slidenum" text-anchor="middle" x="50%" y="50%" stroke="rgb(23, 55, 93)" stroke-width="2" fill="rgba(23, 55, 93,.8)" font-family="Verdana" font-size="40" transform="translate(0,-175)"></text>
 		</g>
+
 		<g id="g1" class="main">
 			<rect id="r1" x="50%" y="50%" rx="10" width="320" height="27" fill="none" transform="translate(-160,-162)" />
 			<text id="t1" text-anchor="middle" x="50%" y="50%" transform="translate(0,-141)"  ></text>
@@ -312,10 +346,16 @@ function fnNext(x) {
 				
 			<rect id="r12" x="50%" y="50%" rx="10" width="320" height="27" fill="none" transform="translate(-160,135)" />
 			<text id="t12" text-anchor="middle" x="50%" y="50%" transform="translate(0,156)" ></text>
-		</g>
+		</g>-->
 		<g>
 			<text id="goback" class="" text-anchor="middle" x="50%" y="50%" font-size="15" transform="translate(0,215)" fill="blue">go back</text>
 		</g>
 	</svg>
+	<form>
+		<input type="range" id="range1" min="0" max="1500" value="0"  />
+		<input type="range" id="range2" min="0" max="1500" value="0"  />
+		<input type="range" id="range3" min="0" max="1500" value="0"  />
+		<!--<input id="clickme" type="button" value="click" />-->
+	</form>
 </body>
 </html>
