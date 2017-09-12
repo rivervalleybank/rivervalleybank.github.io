@@ -182,7 +182,7 @@ function fnClearAll() {
 
 function fnNext(x) {
 	fnClearAll();
-	$("#goback").css('opacity','1').parent().addClass('clickabletoo');
+	$("#goback").css({'fill':'blue','opacity':'1'}).parent().addClass('clickabletoo');
 	switch (x) {
 		case 1:
 			$("#goback").css('opacity', '0').parent().removeClass('clickabletoo');
@@ -348,7 +348,7 @@ function fnNext(x) {
 			<text id="t12" text-anchor="middle" x="50%" y="50%" transform="translate(0,156)" ></text>
 		</g>-->
 		<g>
-			<text id="goback" class="" text-anchor="middle" x="50%" y="50%" font-size="15" transform="translate(0,215)" fill="blue">go back</text>
+			<text id="goback" class="" text-anchor="middle" x="50%" y="50%" font-size="15" transform="translate(0,215)" fill="none">go back</text>
 		</g>
 	</svg>
 </body>
