@@ -3,9 +3,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <head>
-
-<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script src="jquery.ui.touch-punch.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
 <style>
@@ -231,18 +232,33 @@ function fnNext(x) {
 		case 5:
 			$("#slidenum").text('5');
 			$("#t2").text('How much do you spend');
-			$("#t3").text('monthly in each category?');
-			$("#t5").text('CATEGORY 1 :  $' + $("#range1").val()).css('font-size','20');
-			$("#t7").text('CATEGORY 2 :  $' + $("#range2").val()).css('font-size','20');
-			$("#t9").text('CATEGORY 3 :  $' + $("#range3").val()).css('font-size','20');
-			$("#t11").text('DONE').addClass('clickable').css('font-size','20');
-			$("#t11, #r11").attr('data-ans', '1');
-			$("#r11").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
-			$("#r5, #r7, #r9").css({'fill':'#efefef','stroke':'grey'});
-			//$("#range2").css({'display':'block','left':parseInt($("#r7").position().left) + 20,'top':$("#r7").position().top+12});
-			//$("#range1").css({'display':'block','left':parseInt($("#r5").position().left) + 20,'top':$("#r5").position().top+12});
-			//$("#range3").css({'display':'block','left':parseInt($("#r9").position().left) + 20,'top':$("#r9").position().top+12});
+			$("#t3").text('on hotels and airfare on');
+			$("#t4").text('a montly basis?');
+			//options
+			$("#t6").text('$0 - $100').addClass('clickable').css('font-size','20');
+			$("#t6, #r6").attr('data-ans', '1');
+			$("#t8").text('$100 - $500').addClass('clickable').css('font-size','20');
+			$("#t8, #r8").attr('data-ans', '2');
+			$("#t10").text('MORE THAN $500').addClass('clickable').css('font-size','20');
+			$("#t10, #r10").attr('data-ans', '3');
+			$("#r6, #r8, #r10").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
 			break;
+		/*case 5:
+			$("#slidenum").text('5');
+			$("#t2").text('In which category do');
+			$("#t3").text('you spend the most money');
+			$("#t4").text('on a montly basis?');
+			//options
+			$("#t6").text('CATEGORY 1').addClass('clickable').css('font-size','20');
+			$("#t6, #r6").attr('data-ans', '1');
+			$("#t8").text('CATEGORY 2').addClass('clickable').css('font-size','20');
+			$("#t8, #r8").attr('data-ans', '2');
+			$("#t10").text('CATEGORY 3').addClass('clickable').css('font-size','20');
+			$("#t10, #r10").attr('data-ans', '3');
+			$("#t12").text('CATEGORY 4').addClass('clickable').css('font-size','20');
+			$("#t12, #r12").attr('data-ans', '4');
+			$("#r6, #r8, #r10, #r12").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
+			break;*/
 		case 6:
 			$("#slidenum").text('6');
 			$("#t2").text('Is your insurance coverage');
