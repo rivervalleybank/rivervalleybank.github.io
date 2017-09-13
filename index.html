@@ -282,6 +282,8 @@ function fnNext(x) {
 			$("#t9, #r9").attr('data-ans', '3');
 			$("#r5, #r7, #r9").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
 			break;
+		default:
+			$("#goback").css({'fill':'none','opacity':'0'}).parent().removeClass('clickabletoo');
 	}
 }
 </script>
