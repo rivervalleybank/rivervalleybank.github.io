@@ -157,15 +157,14 @@ z[1] = [3,7];
 	
 	
   window.addEventListener('orientationchange', function () {
+	  alert(parseInt($("#slidenum").text()));
 	fnNext(parseInt($("#slidenum").text()));
     var originalBodyStyle = getComputedStyle(document.body).getPropertyValue('display');
     document.body.style.display='none';
     setTimeout(function () {
       document.body.style.display = originalBodyStyle;
     }, 50);
-	  if (parseInt($("#slidenum").text()) == 8) {
-		$("#goback").css('fill','red');	  
-	  }
+
   });
 	
 	//initialize
