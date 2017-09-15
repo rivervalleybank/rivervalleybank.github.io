@@ -135,7 +135,11 @@ z[1] = [3,7];
 	$("#goback").on('click', function () {
 		var x = parseInt($("#slidenum").text())-1;
 		if (x > 0) {
-			fnNext(x);
+			$("g.main rect, g.main text").css({'opacity':'0','transition':'opacity .40s ease-in-out'});
+			setTimeout(function () {
+				$("g.main rect, g.main text").css({'opacity':'1','transition':'opacity .40s ease-in-out'});
+				fnNext(x);
+			}, 200);
 		}
 	});
 	
