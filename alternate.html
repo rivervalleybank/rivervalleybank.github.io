@@ -90,7 +90,7 @@ $("#clickme").click(function () {
 	alert($("#r6").position().top);
 });
 
-$("g#so").css('display', 'hidden');
+$("g#so").css('opacity','0');
 var z = [];
 z[0] = [2,6];
 z[1] = [3,7];
@@ -113,7 +113,7 @@ z[1] = [3,7];
 				$(".end").css({'opacity':'1','transition':'opacity .40s ease-in-out'});
 				}, 200);
 				$("*").removeClass('clickable');
-				$("g#so").css('display', '').addClass('clickabletoo');
+				$("g#so").css('opacity','1').addClass('clickabletoo');
 				$("g #goback").css({'fill':'none','display':'hidden'}).prop('disabled', true).css('color', 'transparent');
 				$("#results").removeAttr("ans");
 				var resultsString = "";
