@@ -2,6 +2,7 @@
 <html>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <head>
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -39,7 +40,7 @@
 	}
 	#finalLine2, #finalLine3, #finalLine4, #finalLine5, #finalLine6, #finalLine1 {
 	font-family: 'Philosopher', sans-serif;
-		font-size:30;
+		font-size:25;
 		opacity:0;
 	}
 	#finalResults {
@@ -144,6 +145,7 @@ function fnReadArray() {
 	j = i + 1;
 		$("[id^='link" + j + "']").attr('xlink:href', z[i][2]);
 		$("[id^='finalLine" + j + "']").text(z[i][1]);
+		$("[id^='touch" + j + "']").attr('fill', '#f2f2f2');
 	}
 	if (z.length%2 === 1) {
 		//$("[id^='finalLine" + z.length + "']").attr('x','50%');
@@ -169,7 +171,7 @@ function fnReadArray() {
 			if (x == 10) {
 				$("g.main, #goback").css({'opacity':'0','transition':'opacity .40s ease-in-out'});
 				setTimeout(function () {
-				$(".end").css({'opacity':'1','transition':'opacity .40s ease-in-out'});
+				$(".end, #referrals").css({'opacity':'1','transition':'opacity .40s ease-in-out'});
 				}, 200);
 				$("*").removeClass('clickable');
 				$("g#so").css('display', '').addClass('clickabletoo');
@@ -183,11 +185,11 @@ function fnReadArray() {
 				});
 				fnReadArray();
 			}
-			else if (x == 8 && (a == 'Visa Secured Card' || a == 'Visa Platinum Card')) {
+			else if (x == 8 && (a == 'Visa® Secured' || a == 'Visa® Platinum')) {
 				endflag = true;
 				$("#r8").trigger('click');
 			}
-			else if (x == 9 && (a == 'Travel Rewards American Express Card' || a == 'Cash Rewards American Express Card')) {
+			else if (x == 9 && (a == 'Travel Rewards American Express®' || a == 'Cash Rewards American Express®')) {
 				endflag = true;
 				$("#r9").trigger('click');
 			}
@@ -280,11 +282,11 @@ function fnNext(x) {
 			$("#t2").text('What is your average');
 			$("#t3").text('checking account balance?');
 			$("#t5").text('$50 - $299').addClass('clickable').css('font-size','20');
-			$("#t5, #r5").attr('ref-type', 'RV Checking').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=170&pageTitle=Personal-Checking-Accounts').attr('ref-sort', '1');
+			$("#t5, #r5").attr('ref-type', 'RVB Checking').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=170&pageTitle=Personal-Checking-Accounts').attr('ref-sort', '1');
 			$("#t7").text('$300 - $2,000').addClass('clickable').css('font-size','20');
-			$("#t7, #r7").attr('ref-type', 'RV Checking Plus').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=170&pageTitle=Personal-Checking-Accounts').attr('ref-sort', '1');
+			$("#t7, #r7").attr('ref-type', 'RVB Checking Plus').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=170&pageTitle=Personal-Checking-Accounts').attr('ref-sort', '1');
 			$("#t9").text('Over $2,000').addClass('clickable').css('font-size','20');
-			$("#t9, #r9").attr('ref-type', 'RV Checking Prime').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=170&pageTitle=Personal-Checking-Accounts').attr('ref-sort', '1');
+			$("#t9, #r9").attr('ref-type', 'RVB Checking Prime').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=170&pageTitle=Personal-Checking-Accounts').attr('ref-sort', '1');
 			$("#r5, #r7, #r9").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
 			break;
 		case 4:
@@ -292,11 +294,11 @@ function fnNext(x) {
 			$("#t2").text('How much do you typically');
 			$("#t3").text('keep in your savings account?');
 			$("#t5").text('$200 - $2,500').addClass('clickable').css('font-size','20');
-			$("#t5, #r5").attr('ref-type', 'RV Savings').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=171&pageTitle=Personal-Savings-Accounts').attr('ref-sort', '2');
+			$("#t5, #r5").attr('ref-type', 'RVB Savings').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=171&pageTitle=Personal-Savings-Accounts').attr('ref-sort', '2');
 			$("#t7").text('$2,500 - $50,000').addClass('clickable').css('font-size','20');
-			$("#t7, #r7").attr('ref-type', 'RV Money Market').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=179&pageTitle=Personal-Money-Market,-CDs-and-IRA-Accounts').attr('ref-sort', '2');
+			$("#t7, #r7").attr('ref-type', 'RVB Money Market').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=179&pageTitle=Personal-Money-Market,-CDs-and-IRA-Accounts').attr('ref-sort', '2');
 			$("#t9").text('Over $50,000').addClass('clickable').css('font-size','20');
-			$("#t9, #r9").attr('ref-type', 'RV Money Market Plus').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=179&pageTitle=Personal-Money-Market,-CDs-and-IRA-Accounts').attr('ref-sort', '2');
+			$("#t9, #r9").attr('ref-type', 'RVB Money Market Plus').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=179&pageTitle=Personal-Money-Market,-CDs-and-IRA-Accounts').attr('ref-sort', '2');
 			$("#r5, #r7, #r9").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
 			break;
 		case 5:
@@ -316,7 +318,7 @@ function fnNext(x) {
 			$("#t3").text('upgrade your home in the');
 			$("#t4").text('next 12 months?');
 			$("#t6").text('YES').addClass('clickable').css('font-size','20');
-			$("#t6, #r6").attr('ref-type', 'RV Mortgage Lender').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=175&pageTitle=Home-Loans').attr('ref-sort', '4');
+			$("#t6, #r6").attr('ref-type', 'RVB Mortgage Lender').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=175&pageTitle=Home-Loans').attr('ref-sort', '4');
 			$("#t8").text('NO').addClass('clickable').css('font-size','20');
 			$("#t8, #r8").attr('ref-type','na').attr('ref-link','na').attr('ref-sort', '0');
 			$("#r6, #r8").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
@@ -326,11 +328,11 @@ function fnNext(x) {
 			$("#t2").text('Are you paying PMI on');
 			$("#t3").text('your current mortgage?');
 			$("#t5").text('YES').addClass('clickable').css('font-size','20');
-			$("#t5, #r5").attr('ref-type', 'RV Mortgage Lender').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=175&pageTitle=Home-Loans').attr('ref-sort', '4');
+			$("#t5, #r5").attr('ref-type', 'RVB Mortgage Lender').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=175&pageTitle=Home-Loans').attr('ref-sort', '4');
 			$("#t7").text('NO').addClass('clickable').css('font-size','20');
 			$("#t7, #r7").attr('ref-type','na').attr('ref-link','na').attr('ref-sort', '0');
 			$("#t9").text("WHAT'S PMI?").addClass('clickable').css('font-size','20');
-			$("#t9, #r9").attr('ref-type', 'RV Mortgage Lender').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=175&pageTitle=Home-Loans').attr('ref-sort', '4');
+			$("#t9, #r9").attr('ref-type', 'RVB Mortgage Lender').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=175&pageTitle=Home-Loans').attr('ref-sort', '4');
 			$("#r5, #r7, #r9").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
 			break;
 		case 8:
@@ -340,9 +342,9 @@ function fnNext(x) {
 			$("#t4").text('credit card?');
 			//options
 			$("#t6").text('BUILDING CREDIT').addClass('clickable').css('font-size','20');
-			$("#t6, #r6").attr('ref-type', 'Visa Secured Card').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=189&pageTitle=Credit-Cards').attr('ref-sort', '3');
+			$("#t6, #r6").attr('ref-type', 'Visa® Secured').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=189&pageTitle=Credit-Cards').attr('ref-sort', '3');
 			$("#t8").text('PAYING DOWN DEBT').addClass('clickable').css('font-size','20');
-			$("#t8, #r8").attr('ref-type', 'Visa Platinum Card').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=189&pageTitle=Credit-Cards').attr('ref-sort', '3');
+			$("#t8, #r8").attr('ref-type', 'Visa® Platinum').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=189&pageTitle=Credit-Cards').attr('ref-sort', '3');
 			$("#t10").text('EARNING REWARDS').addClass('clickable').css('font-size','20');
 			$("#t10, #r10").attr('ref-type','na').attr('ref-link','na').attr('ref-sort', '0');
 			$("#r6, #r8, #r10").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
@@ -355,9 +357,9 @@ function fnNext(x) {
 			$("#t5").text('ALL-PURPOSE').addClass('clickable').css('font-size','20');
 			$("#t5, #r5").attr('ref-type','na').attr('ref-link','na').attr('ref-sort', '0');
 			$("#t7").text('TRAVEL').addClass('clickable').css('font-size','20');
-			$("#t7, #r7").attr('ref-type', 'Travel Rewards American Express Card').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=189&pageTitle=Credit-Cards').attr('ref-sort', '3');
+			$("#t7, #r7").attr('ref-type', "Travel Rewards American Express®").attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=189&pageTitle=Credit-Cards').attr('ref-sort', '3');
 			$("#t9").text('CASH').addClass('clickable').css('font-size','20');
-			$("#t9, #r9").attr('ref-type', 'Cash Rewards American Express Card').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=189&pageTitle=Credit-Cards').attr('ref-sort', '3');
+			$("#t9, #r9").attr('ref-type', 'Cash Rewards American Express®').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=189&pageTitle=Credit-Cards').attr('ref-sort', '3');
 			$("#r5, #r7, #r9").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
 			break;
 		case 10:
@@ -367,9 +369,9 @@ function fnNext(x) {
 			$("#t4").text('credit card?');
 			//options
 			$("#t6").text('UNDER $20,000').addClass('clickable').css('font-size','20');
-			$("#t6, #r6").attr('ref-type', 'Visa Bonus Rewards Card').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=189&pageTitle=Credit-Cards').attr('ref-sort', '3');
+			$("#t6, #r6").attr('ref-type', 'Visa® Bonus Rewards').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=189&pageTitle=Credit-Cards').attr('ref-sort', '3');
 			$("#t8").text('OVER $20,000').addClass('clickable').css('font-size','20');
-			$("#t8, #r8").attr('ref-type', 'Visa Bonus Rewards Plus Card').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=189&pageTitle=Credit-Cards').attr('ref-sort', '3');
+			$("#t8, #r8").attr('ref-type', 'Visa® Bonus Rewards Plus').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=189&pageTitle=Credit-Cards').attr('ref-sort', '3');
 			$("#r6, #r8").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
 			break;
 	}
@@ -393,39 +395,45 @@ function fnNext(x) {
 		<rect id="e2" class="end" x="5.5%" y="10.5%" width="89%" height="79%"/>
 		
 		<!-- final results text -->
-		<svg x="5.5%" y="10.5%" width="89%" height="79%" svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+		<svg id="referrals" x="5.5%" y="10.5%" width="89%" height="79%" svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 
 			<text id="finalLineHeader" class="end" text-anchor="middle" x="50%" y="15%">YOUR PRODUCT RECOMMENDATIONS</text>
 			
-			<a id="link1" xlink:href="" xlink:show="new" x="25%" y="40%" width="50%">
-			<text id="finalLine1" class="end" text-anchor="middle" x="25%" y="40%" stroke="blue" stroke-width="1"></text>
+			<a id="link1" xlink:href="" xlink:show="new" x="25%" y="40%">
+			<circle id="touch1" class="end" style="opacity:0;" cx="25%" cy="40%" r="40" transform="translate(0,-10)"/>
+			<text id="finalLine1" class="end" text-anchor="middle" x="25%" y="40%" fill="blue" stroke-width="1"></text>
 			</a>
 			
-			<a id="link2" xlink:href="" xlink:show="new" x="75%" y="40%" width="50%">
-			<text id="finalLine2" class="end" text-anchor="middle" x="75%" y="40%" stroke="blue" stroke-width="1"></text>
+			<a id="link2" xlink:href="" xlink:show="new" x="75%" y="40%">
+			<circle id="touch2" class="end" style="opacity:0;" cx="75%" cy="40%" r="40" transform="translate(0,-10)"/>
+			<text id="finalLine2" class="end" text-anchor="middle" x="75%" y="40%" fill="blue" stroke-width="1"></text>
 			</a>
 			
-			<a id="link3" xlink:href="" xlink:show="new" x="25%" y="60%" width="50%">
-			<text id="finalLine3" class="end" text-anchor="middle" x="25%" y="60%" stroke="blue" stroke-width="1"></text>
+			<a id="link3" xlink:href="" xlink:show="new" x="25%" y="60%">
+			<circle id="touch3" class="end" style="opacity:0;" cx="25%" cy="60%" r="40" transform="translate(0,-10)"/>
+			<text id="finalLine3" class="end" text-anchor="middle" x="25%" y="60%" fill="blue" stroke-width="1"></text>
 			</a>
 			
-			<a id="link4" xlink:href="" xlink:show="new" x="75%" y="60%" width="50%">
-			<text id="finalLine4" class="end" text-anchor="middle" x="75%" y="60%" stroke="blue" stroke-width="1"></text>
+			<a id="link4" xlink:href="" xlink:show="new" x="75%" y="60%">
+			<circle id="touch4" class="end" style="opacity:0;" cx="75%" cy="60%" r="40" transform="translate(0,-10)"/>
+			<text id="finalLine4" class="end" text-anchor="middle" x="75%" y="60%" fill="blue" stroke-width="1"></text>
 			</a>
 			
-			<a id="link5" xlink:href="" xlink:show="new" x="25%" y="80%" width="50%">
-			<text id="finalLine5" class="end" text-anchor="middle" x="25%" y="80%" stroke="blue" stroke-width="1"></text>
+			<a id="link5" xlink:href="" xlink:show="new" x="25%" y="80%">
+			<circle id="touch5" class="end" style="opacity:0;" cx="25%" cy="80%" r="40" transform="translate(0,-10)"/>
+			<text id="finalLine5" class="end" text-anchor="middle" x="25%" y="80%" fill="blue" stroke-width="1"></text>
 			</a>
 			
-			<a id="link6" xlink:href="" xlink:show="new" x="75%" y="80%" width="50%">
-			<text id="finalLine6" class="end" text-anchor="middle" x="75%" y="80%" stroke="blue" stroke-width="1"></text>
+			<a id="link6" xlink:href="" xlink:show="new" x="75%" y="80%">
+			<circle id="touch6" class="end" style="opacity:0;" cx="75%" cy="80%" r="40" transform="translate(0,-10)"/>
+			<text id="finalLine6" class="end" text-anchor="middle" x="75%" y="80%" fill="blue" stroke-width="1"></text>
 			</a>
 			
 		</svg>
 		
 		<!-- "start over" link -->
 		<g id="so">
-			<text id="startover" class="end" text-anchor="middle" x="50%" y="95%" fill="white" font-size="15" style="opacity:0;">start over</text>
+			<text id="startover" class="end" text-anchor="middle" x="50%" y="97%" fill="white" font-size="16" style="opacity:0;">start over</text>
 		</g>
 		
 		<!-- circles and slide number -->
