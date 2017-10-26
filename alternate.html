@@ -2,7 +2,7 @@
 <html>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta charset=utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <head>
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -77,8 +77,8 @@
 			font-size:40;
 		}
 		#finalLine1, #finalLine2, #finalLine3, #finalLine4, #finalLine5, #finalLine6 {
-			font-size:25;
-			fill:black;
+			font-size:22;
+			fill:blue;
 		}
 	}
 	@media screen and (max-width:950px) {
@@ -87,8 +87,8 @@
 			font-size:32;
 		}
 		#finalLine1, #finalLine2, #finalLine3, #finalLine4, #finalLine5, #finalLine6 {
-			font-size:25;
-			fill:black;
+			font-size:19;
+			fill:blue;
 		}
 	}
 </style>
@@ -121,7 +121,7 @@ $("g#so").css('display', 'hidden');
 		var boolSave;
 var z = [];
 function fnArrayMaint(r, u, s) {
-	if (endflag != true) {
+	if (endflag != true && a != undefined) {
 		z[ac] = [s, r, u];
 		ac++;
 	}
@@ -149,8 +149,9 @@ function fnReadArray() {
 		$("[id^='box" + j + "']").attr({'fill':'#f1f1f1','stroke':'black'});
 	}
 	if (z.length%2 === 1) {
-		//$("[id^='finalLine" + z.length + "']").attr('x','50%');
-		//$("[id^='link" + z.length + "']").attr('x', '50%');
+		$("[id^='finalLine" + z.length + "']").attr('x','50%');
+		$("[id^='link" + z.length + "']").attr('x', '50%');
+		$("[id^='box" + z.length + "']").attr('x', '25%');
 	}
 }
 	//selection click handler
