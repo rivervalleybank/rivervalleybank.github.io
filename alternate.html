@@ -12,6 +12,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
 <style>
 	@media screen {
+
 	input[type='button'] {
 	background-color:pink;
 	border:1px solid black;
@@ -70,23 +71,23 @@
 		border:1px solid red;
 	}
 	}
-	/*@media screen and (max-width:1150px) {
+	@media screen and (max-width:1150px) {
 		#finalLineHeader{
 			fill:black;
 			font-size:40;
 		}
 		#finalLine1, #finalLine2, #finalLine3, #finalLine4, #finalLine5, #finalLine6 {
-			font-size:18;
+			font-size:25;
 			fill:black;
 		}
 	}
-	@media screen and (max-width:950px) {
+	/*@media screen and (max-width:950px) {
 		#finalLineHeader {
 			fill:black;
 			font-size:32;
 		}
 		#finalLine1, #finalLine2, #finalLine3, #finalLine4, #finalLine5, #finalLine6 {
-			font-size:15;
+			font-size:25;
 			fill:black;
 		}
 	}*/
@@ -145,7 +146,7 @@ function fnReadArray() {
 	j = i + 1;
 		$("[id^='link" + j + "']").attr('xlink:href', z[i][2]);
 		$("[id^='finalLine" + j + "']").text(z[i][1]);
-		$("[id^='touch" + j + "']").attr('fill', '#f2f2f2');
+		$("[id^='box" + j + "']").attr({'fill':'#f1f1f1','stroke':'black'});
 	}
 	if (z.length%2 === 1) {
 		//$("[id^='finalLine" + z.length + "']").attr('x','50%');
@@ -173,6 +174,8 @@ function fnReadArray() {
 				setTimeout(function () {
 				$(".end, #referrals").css({'opacity':'1','transition':'opacity .40s ease-in-out'});
 				}, 200);
+				
+				$("g.main rect, g.main text, g.main circle").remove();
 				$("*").removeClass('clickable');
 				$("g#so").css('display', '').addClass('clickabletoo');
 				$("g #goback").remove();
@@ -262,9 +265,9 @@ function fnNext(x) {
 			$("#t5").text("YES, I'LL BE READY").addClass('clickable').css('font-size','20');
 			$("#t5, #r5").attr('ref-type','na').attr('ref-link','na').attr('ref-sort', '0');
 			$("#t7").text('MAYBE...').addClass('clickable').css('font-size','20');
-			$("#t7, #r7").attr('ref-type', 'Woodtrust Bank').attr('ref-link','www.woodtrust.com/index.asp').attr('ref-sort', '6');
+			$("#t7, #r7").attr('ref-type', 'Woodtrust Bank').attr('ref-link','https://www.woodtrust.com').attr('ref-sort', '6');
 			$("#t9").text('NO, HELP!').addClass('clickable').css('font-size', '20');
-			$("#t9, #r9").attr('ref-type', 'Woodtrust Bank').attr('ref-link','www.woodtrust.com/index.asp').attr('ref-sort', '6');
+			$("#t9, #r9").attr('ref-type', 'Woodtrust Bank').attr('ref-link','https://www.woodtrust.com').attr('ref-sort', '6');
 			$("#r5, #r7, #r9").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
 			break;
 		case 2:
@@ -394,43 +397,44 @@ function fnNext(x) {
 		<!-- inner final results rectangle -->
 		<rect id="e2" class="end" x="5.5%" y="10.5%" width="89%" height="79%"/>
 		
+
 		<!-- final results text -->
-		<svg id="referrals" x="5.5%" y="10.5%" width="89%" height="79%" svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+		<svg id="referrals" x="5.5%" y="10.5%" width="89%" height="79%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 
 			<text id="finalLineHeader" class="end" text-anchor="middle" x="50%" y="15%">YOUR PRODUCT RECOMMENDATIONS</text>
 			
-			<a id="link1" xlink:href="" xlink:show="new" x="25%" y="40%">
-			<circle id="touch1" class="end" style="opacity:0;" cx="25%" cy="40%" r="40" transform="translate(0,-10)"/>
+			
+			<a id="link1" xlink:href="" xlink:show="new" x=".25%" y="28%" width="49.625%" height="19.5%" >
+			<rect id="box1" style="opacity:0;" class="end" x=".25%" y="28%" width="49.625%" height="19.5%" />
 			<text id="finalLine1" class="end" text-anchor="middle" x="25%" y="40%" fill="blue" stroke-width="1"></text>
 			</a>
 			
-			<a id="link2" xlink:href="" xlink:show="new" x="75%" y="40%">
-			<circle id="touch2" class="end" style="opacity:0;" cx="75%" cy="40%" r="40" transform="translate(0,-10)"/>
+			<a id="link2" xlink:href="" xlink:show="new" x="50.125%" y="28%" width="49.625%" height="19.5%">
+			<rect id="box2" style="opacity:0;" class="end" x="50.125%" y="28%" width="49.625%" height="19.5%" />
 			<text id="finalLine2" class="end" text-anchor="middle" x="75%" y="40%" fill="blue" stroke-width="1"></text>
 			</a>
 			
-			<a id="link3" xlink:href="" xlink:show="new" x="25%" y="60%">
-			<circle id="touch3" class="end" style="opacity:0;" cx="25%" cy="60%" r="40" transform="translate(0,-10)"/>
+			<a id="link3" xlink:href="" xlink:show="new" width="100%">
+			<rect id="box3" style="opacity:0;" class="end" x=".25%" y="48%" width="49.625%" height="19.5%" />
 			<text id="finalLine3" class="end" text-anchor="middle" x="25%" y="60%" fill="blue" stroke-width="1"></text>
 			</a>
 			
-			<a id="link4" xlink:href="" xlink:show="new" x="75%" y="60%">
-			<circle id="touch4" class="end" style="opacity:0;" cx="75%" cy="60%" r="40" transform="translate(0,-10)"/>
+			<a id="link4" xlink:href="" xlink:show="new" width="100%">
+			<rect id="box4" style="opacity:0;" class="end" x="50.125%" y="48%" width="49.625%" height="19.5%" />
 			<text id="finalLine4" class="end" text-anchor="middle" x="75%" y="60%" fill="blue" stroke-width="1"></text>
 			</a>
 			
-			<a id="link5" xlink:href="" xlink:show="new" x="25%" y="80%">
-			<circle id="touch5" class="end" style="opacity:0;" cx="25%" cy="80%" r="40" transform="translate(0,-10)"/>
+			<a id="link5" xlink:href="" xlink:show="new" width="100%">
+			<rect id="box5" style="opacity:0;" class="end" x=".25%" y="68%" width="49.625%" height="19.5%" />
 			<text id="finalLine5" class="end" text-anchor="middle" x="25%" y="80%" fill="blue" stroke-width="1"></text>
 			</a>
 			
-			<a id="link6" xlink:href="" xlink:show="new" x="75%" y="80%">
-			<circle id="touch6" class="end" style="opacity:0;" cx="75%" cy="80%" r="40" transform="translate(0,-10)"/>
+			<a id="link6" xlink:href="" xlink:show="new" width="100%">
+			<rect id="box6" style="opacity:0;" class="end" x="50.125%" y="68%" width="49.625%" height="19.5%" />
 			<text id="finalLine6" class="end" text-anchor="middle" x="75%" y="80%" fill="blue" stroke-width="1"></text>
 			</a>
 			
 		</svg>
-		
 		<!-- "start over" link -->
 		<g id="so">
 			<text id="startover" class="end" text-anchor="middle" x="50%" y="97%" fill="white" font-size="16" style="opacity:0;">start over</text>
