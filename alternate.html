@@ -34,10 +34,12 @@
 	-ms-user-select: none;
 	}
 	#finalLineHeader {
-		fill:black;
+		/*fill:black;*/
+		fill:white;
 		/*font-family:Consolas,monospace;*/
 		font-family: 'Philosopher', sans-serif;
 		font-size:50;
+		stroke-width:2;
 		opacity:0;
 	}
 	#finalLine2, #finalLine3, #finalLine4, #finalLine5, #finalLine6, #finalLine1 {
@@ -50,7 +52,7 @@
 		font-size:22;
 		opacity:0;
 	}
-	#e1 {
+	/*#e1 {
 		fill:none;
 		stroke:white;
 		stroke-width:10;
@@ -61,7 +63,7 @@
 		stroke:black;
 		stroke-width:2;
 		opacity:0;
-	}
+	}*/
 	#e3, #e4, #e5, #e6, #e7, #e8 {
 		fill:pink;
 		stroke:black;
@@ -84,12 +86,16 @@
 	}
 	@media screen and (max-width:950px) {
 		#finalLineHeader {
-			fill:black;
+			/*fill:black;*/
+			fill:white;
+			stroke-width:2;
 			font-size:32;
 		}
 		#finalLine1, #finalLine2, #finalLine3, #finalLine4, #finalLine5, #finalLine6 {
 			font-size:19;
-			fill:blue;
+			/*fill:blue;*/
+			fill:white;
+			stroke-width:2;
 		}
 	}
 </style>
@@ -394,10 +400,10 @@ function fnNext(x) {
 		</defs>
 		
 		<!-- outer final results rectangle -->
-		<rect id="e1" class="end" x="3%" y="8%" width="94%" height="84%"/>
+		<!--<rect id="e1" class="end" x="3%" y="8%" width="94%" height="84%"/>-->
 		
 		<!-- inner final results rectangle -->
-		<rect id="e2" class="end" x="5.5%" y="10.5%" width="89%" height="79%"/>
+		<!--<rect id="e2" class="end" x="5.5%" y="10.5%" width="89%" height="79%"/>-->
 		
 
 		<!-- final results text -->
