@@ -1,19 +1,16 @@
-
 <html>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <head>
 	<link rel="apple-touch-icon" href="icon114.png">
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
-	<!--<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
 	<script src="jquery.ui.touch-punch.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
 <style>
 	@media screen {
-
 	input[type='button'] {
 	background-color:pink;
 	border:1px solid black;
@@ -95,27 +92,8 @@
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-
 $(document).ready(function () {
-/*links
-woodtrust
-http://woodtrust.com/asset_management.asp
-checking
-https://www.rivervalleybank.com/index.cfm?pid=170&pageTitle=Personal-Checking-Accounts
-savings
-https://www.rivervalleybank.com/index.cfm?pid=171&pageTitle=Personal-Savings-Accounts
-money market
-https://www.rivervalleybank.com/index.cfm?pid=179&pageTitle=Personal-Money-Market,-CDs-and-IRA-Accounts
-river valley insurance
-http://www.rivervalley-insurance.com/
-mortgage
-https://www.rivervalleybank.com/index.cfm?pid=175&pageTitle=Home-Loans
-credit cards
-https://www.rivervalleybank.com/index.cfm?pid=189&pageTitle=Credit-Cards
-mobile
-https://www.rivervalleybank.com/index.cfm?pid=184&pageTitle=Mobile-Banking
-*/
-
+//initialize
 var endflag = false;
 $("g#so").css('display', 'hidden');
 		var n, a, b, c, d, ac, s
@@ -123,6 +101,7 @@ $("g#so").css('display', 'hidden');
 		ac = 0;
 		var boolSave;
 var z = [];
+//build array
 function fnArrayMaint(r, u, s) {
 	if (endflag != true && a != undefined) {
 		z[ac] = [s, r, u];
@@ -130,7 +109,7 @@ function fnArrayMaint(r, u, s) {
 	}
 	z[ac] = ["1", "Digital Banking", "https://www.rivervalleybank.com/index.cfm?pid=184&pageTitle=Mobile-Banking"];
 }
-
+//read our array
 function fnReadArray() {
 	z.sort();
 	for (i = 0; i < z.length; i++) {
@@ -165,18 +144,15 @@ function fnReadArray() {
 		c = $(this).attr('ref-sort');
 		
 		fnArrayMaint(a, b, c);
-
 		if ($(this).hasClass('clickable')) {
 			var x;
 			if (endflag == true) {
-				//x = 10;
-				x = 9;
+				x = 7;
 			}
 			else {
 				x = parseInt($("#slidenum").text());
 			}
-			//if (x == 10) {
-			if (x == 9) {
+			if (x == 7) {
 				$("g.main, #goback").css({'opacity':'0','transition':'opacity .40s ease-in-out'});
 				setTimeout(function () {
 				$(".end, #referrals").css({'opacity':'1','transition':'opacity .40s ease-in-out'});
@@ -195,13 +171,11 @@ function fnReadArray() {
 				});
 				fnReadArray();
 			}
-			//else if (x == 8 && (a == 'Visa® Secured' || a == 'Visa® Platinum')) {
-			else if (x == 7 && (a == 'Visa® Secured' || a == 'Visa® Platinum')) {
+			else if (x == 5 && (a == 'Visa® Secured' || a == 'Visa® Platinum')) {
 				endflag = true;
 				$("#r8").trigger('click');
 			}
-			//else if (x == 9 && (a == 'Travel Rewards American Express®' || a == 'Cash Rewards American Express®')) {
-			else if (x == 8 && (a == 'Travel Rewards American Express®' || a == 'Cash Rewards American Express®')) {
+			else if (x == 6 && (a == 'Travel Rewards American Express®' || a == 'Cash Rewards American Express®')) {
 				endflag = true;
 				$("#r9").trigger('click');
 			}
@@ -213,7 +187,6 @@ function fnReadArray() {
 				}, 200);
 				$("*").removeClass('clickable');
 			}
-			//e.stopPropagation();
 		}
 	});
 	
@@ -251,7 +224,6 @@ function fnReadArray() {
 	//initialize
 	fnNext(1);
 });
-
 function fnClearAll() {
 	$("#slidenum").text('');
 	$("[id^='r']").each(function () {
@@ -261,7 +233,6 @@ function fnClearAll() {
 		$(this).text('').css('font-size','28').attr('ref-type', undefined).attr('ref-link', undefined);
 	});
 }
-
 function fnNext(x) {
 	fnClearAll();
 	$("#goback").css({'opacity':'1','fill':'blue'}).parent().addClass('clickabletoo');
@@ -315,28 +286,6 @@ function fnNext(x) {
 			break;
 		case 5:
 			$("#slidenum").text('5');
-			$("#t2").text('Are you on track to retire');
-			$("#t3").text('when you would like?');
-			$("#t5").text("YES, I'LL BE READY").addClass('clickable').css('font-size','20');
-			$("#t5, #r5").attr('ref-type','na').attr('ref-link','na').attr('ref-sort', '0');
-			$("#t7").text('MAYBE...').addClass('clickable').css('font-size','20');
-			$("#t7, #r7").attr('ref-type', 'Woodtrust Bank').attr('ref-link','http://woodtrust.com/index.asp').attr('ref-sort', '7');
-			$("#t9").text('NO, HELP!').addClass('clickable').css('font-size', '20');
-			$("#t9, #r9").attr('ref-type', 'Woodtrust Bank').attr('ref-link','http://woodtrust.com/index.asp').attr('ref-sort', '7');
-			$("#r5, #r7, #r9").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
-			break;
-		case 6:
-			$("#slidenum").text('6');
-			$("#t2").text('Do you have a 401(k) that');
-			$("#t3").text("hasn't been rolled over?");
-			$("#t5").text('YES').addClass('clickable').css('font-size','20');
-			$("#t5, #r5").attr('ref-type','Woodtrust Bank').attr('ref-link','http://woodtrust.com/index.asp').attr('ref-sort', '7');
-			$("#t7").text('NO').addClass('clickable').css('font-size','20');
-			$("#t7, #r7").attr('ref-type','na').attr('ref-link','na').attr('ref-sort', '0');
-			$("#r5, #r7").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
-			break;
-		case 7:
-			$("#slidenum").text('7');
 			$("#t2").text('What is your top priority');
 			$("#t3").text('when it comes to your');
 			$("#t4").text('credit card?');
@@ -349,8 +298,8 @@ function fnNext(x) {
 			$("#t10, #r10").attr('ref-type','na').attr('ref-link','na').attr('ref-sort', '0');
 			$("#r6, #r8, #r10").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
 			break;
-		case 8:
-			$("#slidenum").text('8');
+		case 6:
+			$("#slidenum").text('6');
 			$("#t2").text('Which type of reward');
 			$("#t3").text('do you prefer?');
 			//options
@@ -362,8 +311,8 @@ function fnNext(x) {
 			$("#t9, #r9").attr('ref-type', 'Cash Rewards American Express®').attr('ref-link','https://www.rivervalleybank.com/index.cfm?pid=189&pageTitle=Credit-Cards').attr('ref-sort', '2');
 			$("#r5, #r7, #r9").css({'fill':'#E0D9BF','stroke':'grey'}).addClass('clickable');
 			break;
-		case 9:
-			$("#slidenum").text('9');
+		case 7:
+			$("#slidenum").text('7');
 			$("#t2").text('How much do you spend');
 			$("#t3").text('annually on your');
 			$("#t4").text('credit card?');
@@ -423,16 +372,10 @@ function fnNext(x) {
 			<rect id="box6" style="opacity:0;" class="end" x="50.125%" y="59%" width="49.375%" height="19.5%" />
 			<text id="finalLine6" class="end" text-anchor="middle" x="75%" y="70.5%" fill="blue" stroke-width="1"></text>
 			</a>
-			
-			<a id="link7" xlink:href="" xlink:show="new">
-			<rect id="box7" style="opacity:0;" class="end" x=".5%" y="79%" width="49.375%" height="19.5%" />
-			<text id="finalLine7" class="end" text-anchor="middle" x="25%" y="90.5%" fill="blue" stroke-width="1"></text>
-			</a>
-			
 		</svg>
 		<!-- "start over" link -->
 		<g id="so">
-			<text id="startover" class="end" text-anchor="middle" x="50%" y="97%" fill="white" font-size="16" style="opacity:0;">start over</text>
+			<text id="startover" class="end" text-anchor="middle" x="50%" y="90%" fill="white" font-size="16" style="opacity:0;">start over</text>
 		</g>
 		
 		<!-- circles and slide number -->
